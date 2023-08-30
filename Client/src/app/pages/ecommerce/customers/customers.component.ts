@@ -72,25 +72,125 @@ export class CustomersComponent implements OnInit {
    * Modal Open
    * @param content modal content
    */
-  openModal(content: any) {
+  async openModal(content: any, item?: any) {
+    if(item){
+
+      const measure:any = await this.userService.getMeasurement({user_id_ref:item._id}).toPromise();
+
+      this.validationform = this.formBuilder.group({
+        name: item.name,
+        tailor_id: item.tailor_id,
+        phone: item.phone,
+        address: item.address,
+    
+        lmbai: measure.data[0]?.lmbai||'',
+        bazu: measure.data[0]?.bazu||'',
+        teera: measure.data[0]?.teera||'',
+        gala: measure.data[0]?.gala||'',
+        chhati: measure.data[0]?.chhati||'',
+        qamar: measure.data[0]?.qamar||'',
+        ghera: measure.data[0]?.ghera||'',
+        shalwar: measure.data[0]?.shalwar||'',
+        pancha: measure.data[0]?.pancha||'',
+        packet_samne: measure.data[0]?.packet_samne||'',
+        packet_side: measure.data[0]?.packet_side||'',
+        packet_shalwar: measure.data[0]?.packet_shalwar||'',
+        description: measure.data[0]?.description||''
+
+      });
+     this.modalService.open(content, { centered: true });
+
+    }else{
     this.modalService.open(content, { centered: true });
+
+    }
+
   }
 
   deleteUser(item){
-    this.userService.deleteMeasurement({_id:item._id}).subscribe((res: any) => {
+    this.userService.deleteUser({_id:item._id}).subscribe((res: any) => {
       console.log(res);
       this._fetchData();
     } );
   }
   editUser(item){
+    const name = this.validationform.get('name').value;
+    const tailor_id = this.validationform.get('tailor_id').value;
+    const phone = this.validationform.get('phone').value;
+    const address = this.validationform.get('address').value;
 
+    const lmbai = this.validationform.get('lmbai').value;
+    const bazu = this.validationform.get('bazu').value;
+    const teera = this.validationform.get('teera').value;
+    const gala = this.validationform.get('gala').value;
+    const chhati = this.validationform.get('chhati').value;
+    const qamar = this.validationform.get('qamar').value;
+    const ghera = this.validationform.get('ghera').value;
+    const shalwar = this.validationform.get('shalwar').value;
+    const pancha = this.validationform.get('pancha').value;
+    const packet_samne = this.validationform.get('packet_samne').value;
+    const packet_side = this.validationform.get('packet_side').value;
+    const packet_shalwar = this.validationform.get('packet_shalwar').value;
+
+    const description = this.validationform.get('description').value;
+
+    if (this.validationform.valid) {
+
+      const newObect={
+        _id:item._id,
+        name: name||item.name,
+        tailor_id: tailor_id||item.tailor_id,
+        phone: phone||item.phone,
+        address: address||item.address,
+        lmbai: lmbai||item.lmbai,
+        bazu: bazu||item.bazu,
+        teera: teera||item.teera,
+        gala: gala||item.gala,
+        chhati: chhati||item.chhati,
+        qamar: qamar||item.qamar,
+        ghera: ghera||item.ghera,
+        shalwar: shalwar||item.shalwar,
+        pancha: pancha||item.pancha,
+        packet_samne: packet_samne||item.packet_samne,
+        packet_side: packet_side||item.packet_side,
+        packet_shalwar: packet_shalwar||item.packet_shalwar,
+        description: description||item.description
+      }
+
+      this.userService.addUser(newObect).subscribe((res: any) => {
+        console.log(res);
+
+        this._fetchData();
+
+      } );
+
+      this.validationform = this.formBuilder.group({
+      name: '',
+      tailor_id: '',
+      phone: '',
+      address: '',
+
+      lmbai: '',
+      bazu: '',
+      teera: '',
+      gala: '',
+      chhati: '',
+      qamar: '',
+      ghera: '',
+      shalwar: '',
+      pancha: '',
+      packet_samne: '',
+      packet_side: '',
+      packet_shalwar: '',
+
+      description: ''
+      });
+
+      this.modalService.dismissAll();
+    }
+    this.submitted = true;
   }
-  searchUser(){
-    // this.userService.searchUser({}).subscribe((res: any) => {
-    //   console.log(res);
-    //   this._fetchData();
-    // } );
-  }
+
   /**
    * save the contacts data
    */

@@ -30,7 +30,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr style="cursor: pointer;" *ngFor="let item of measurements|filter:term">
+                <tr style="cursor: pointer;" *ngFor="let item of measurements | filter:term">
                   <td (click)="openModal(content, item)" >{{item.user_id_ref?.name||''}}</td>
                   <td (click)="openModal(content, item)" >{{item.user_id_ref?.tailor_id||''}}</td>
                   <td (click)="openModal(content, item)" >{{item.user_id_ref?.phone||''}}</td>

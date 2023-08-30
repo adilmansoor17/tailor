@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { latLng, tileLayer } from 'leaflet';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { ChartType, Stat, Chat, Transaction } from './dashboard.model';
-
-import { statData, revenueChart, salesAnalytics, sparklineEarning, sparklineMonthly, chatData, transactions } from './data';
 import { ApiService } from '../api.service';
 
 @Component({

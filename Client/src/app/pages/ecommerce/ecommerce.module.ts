@@ -21,6 +21,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ShopsComponent } from './shops/shops.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   // tslint:disable-next-line: max-line-length
@@ -41,7 +42,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     NgbCollapseModule,
     NgSelectModule,
     Ng5SliderModule,
-    NgbModalModule
+    NgbModalModule,
+    Ng2SearchPipeModule
   ]
 })
 export class EcommerceModule { }

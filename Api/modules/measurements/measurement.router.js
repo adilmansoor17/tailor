@@ -6,7 +6,7 @@ const controller = require('./controller/measurement.controller');
     router.route('/getMeasurement')
     .post(async (req, res) => {
         console.log("yea, got these mans: ")
-        controller(req).getData(res);
+        controller(req).getMeasurement(res);
 
     });
 

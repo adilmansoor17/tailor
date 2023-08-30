@@ -8,7 +8,10 @@ const person = new Schema({
     phone: String,
     email: String,
     address: String,
-    status: String
+    status: {
+        type: String,
+        default: 'true'
+    }
     
 },{timestamps: true});
 

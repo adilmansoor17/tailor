@@ -51,7 +51,7 @@ const controller = (req) => {
         let requestedata = req.body.details;
         let _measurement= {};
         if(requestedata._id){
-          _measurement = await Measurement.findByIdAndDelete({_id:mongoose.Types.ObjectId(requestedata._id)});
+          _measurement = await measurement.findOneAndDelete({_id:mongoose.Types.ObjectId(requestedata._id)});
         }
         res.send({ status: 200, message: "Measurement deleted.", data: _measurement });
 

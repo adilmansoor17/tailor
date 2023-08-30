@@ -171,7 +171,9 @@ const controller = (req) => {
         let requestedata = req.body.details;
         let _person= {};
         if(requestedata._id){
-          _person = await person.findByIdAndDelete({_id:mongoose.Types.ObjectId(requestedata._id)});
+          _person = await person.findOneAndDelete({_id:mongoose.Types.ObjectId(requestedata._id)});
+          const _measurement = await measurement.findOneAndDelete({user_id_ref:mongoose.Types.ObjectId(requestedata._id)});
+          
         }
         res.send({ status: 200, message: "Person deleted.", data: _person });
 

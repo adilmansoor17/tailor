@@ -18,7 +18,10 @@ const orders = new Schema({
         name: String,
         color:String
     }],
-    status:String,
+    status: {
+        type: String,
+        default: 'true'
+    },
     description: String 
 
     

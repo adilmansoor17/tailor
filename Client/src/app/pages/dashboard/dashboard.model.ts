@@ -33,6 +33,17 @@ export interface Transaction {
     paymentstatus: string;
 }
 
+export interface person{
+    tailor_id: String,
+    name: String,
+    age: String,
+    phone: String,
+    email: String,
+    address: String,
+    status: String
+    
+}
+
 export interface measurement {
     tailor_id: String,
     name: String,

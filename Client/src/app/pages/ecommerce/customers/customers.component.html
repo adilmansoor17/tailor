@@ -1,5 +1,5 @@
 <div class="container-fluid">
- 
+
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
@@ -7,10 +7,15 @@
 
           <div class="row">
             <div class="col-sm-12 col-md-12">
-              <div id="tickets-table_filter" class="dataTables_filter text-md-right"><label
-                  class="d-inline-flex align-items-center">Search:
-                  <input type="text" name="searchTerm" class="form-control form-control-sm ml-2"
-                    aria-controls="tickets-table" [(ngModel)]="term" /></label></div>
+              <div id="tickets-table_filter" class="dataTables_filter text-md-right">
+
+                <input type="text" name="searchTerm" class="form-control form-control-sm ml-2"
+                  aria-controls="tickets-table" [(ngModel)]="term" />
+                <a class="btn btn-success mb-2" (click)="searchUser()">
+                  Search
+                </a>
+
+              </div>
             </div>
           </div>
 
@@ -26,11 +31,11 @@
               <thead class="thead-light">
                 <tr>
 
-                  <th>Customer</th>
-                  <th>Email</th>
+                  <th>Name</th>
+                  <th>Tailor ID</th>
                   <th>Phone</th>
-                  <th>Wallet Balance</th>
-                  <th>Joining Date</th>
+                  <th>Address</th>
+                  <th>Created On</th>
                   <th style="width: 120px;">Action</th>
                 </tr>
               </thead>
@@ -38,15 +43,17 @@
                 <tr *ngFor="let item of customersData; let i= index">
 
                   <td>{{item.name}}</td>
-                  <td>{{item.email}}</td>
+                  <td>{{item.tailor_id}}</td>
                   <td>{{item.phone}}</td>
-                  <td>{{item.balance}}</td>
-                  <td>{{item.date}}</td>
+                  <td>{{item.address}}</td>
+                  <td>{{item.createdAt | date}}</td>
                   <td>
-                    <a href="javascript:void(0);" class="mr-3 text-primary" v-b-tooltip.hover title="Edit">
+                    <a  (click)="editUser(item)" class="mr-3 text-primary" v-b-tooltip.hover
+                      title="Edit">
                       <i class="mdi mdi-pencil font-size-18"></i>
                     </a>
-                    <a href="javascript:void(0);" class="text-danger" v-b-tooltip.hover title="Delete">
+                    <a  (click)="deleteUser(item)" class="text-danger" v-b-tooltip.hover
+                      title="Delete">
                       <i class="mdi mdi-trash-can font-size-18"></i>
                     </a>
                   </td>
@@ -63,7 +70,7 @@
 <!-- Contacts model  -->
 <ng-template #content role="document" let-modal="close">
   <div class="modal-header">
-    <h5 class="modal-title">Add Contacts</h5>
+    <h5 class="modal-title">Add Measurement</h5>
     <button type="button" class="close" aria-label="Close" (click)="modal('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -74,49 +81,81 @@
 
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name"
-            [ngClass]="{'is-invalid': submitted && form.name.errors}">
-          <div *ngIf="submitted && form.name.errors" class="invalid-feedback">
-            <span *ngIf="form.name.errors.required">Name is mendatory.</span>
-          </div>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name">
+
         </div>
 
         <div class="form-group">
-          <label for="email">Email address</label>
-          <input class="form-control" id="email" placeholder="Enter email" formControlName="email"
-            [ngClass]="{'is-invalid': submitted && form.email.errors}">
-          <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
-            <span *ngIf="form.email.errors.required">Email address is mendatory.</span>
-            <span *ngIf="form.email.errors.pattern">Please enter valid email.</span>
-          </div>
+          <label for="tailor_id">Tailor ID</label>
+          <input type="text" class="form-control" id="tailor_id" placeholder="Enter Tailor ID"
+            formControlName="tailor_id">
+
         </div>
 
         <div class="form-group">
           <label>Phone </label>
-          <input type="number" class="form-control" placeholder="Enter phone number" formControlName="phone"
-            [ngClass]="{'is-invalid': submitted && form.phone.errors}" minlength="10">
-          <div *ngIf="submitted && form.phone.errors" class="invalid-feedback">
-            <span *ngIf="form.phone.errors.required">Phone is mendatory.</span>
-            <span *ngIf="form.phone.errors.minlength">Phone number must be 10 characters.</span>
-          </div>
+          <input type="text" class="form-control" placeholder="Enter phone number" formControlName="phone">
         </div>
 
         <div class="form-group">
-          <label>Balance </label>
-          <input type="number" class="form-control" placeholder="Enter balance" formControlName="balance"
-            [ngClass]="{'is-invalid': submitted && form.balance.errors}">
-          <div *ngIf="submitted && form.balance.errors" class="invalid-feedback">
-            <span *ngIf="form.balance.errors.required">Balance is mendatory.</span>
-          </div>
+          <label>Address </label>
+          <input type="text" class="form-control" placeholder="Enter Address" formControlName="address">
         </div>
 
         <div class="form-group">
-          <label>Date </label>
-          <input class="form-control" placeholder="Enter date" formControlName="date"
-            [ngClass]="{'is-invalid': submitted && form.date.errors}">
-          <div *ngIf="submitted && form.date.errors" class="invalid-feedback">
-            <span *ngIf="form.date.errors.required">Date is mendatory.</span>
-          </div>
+          <label>lmbai </label>
+          <input class="form-control" placeholder="Enter lmbai" formControlName="lmbai">
+        </div>
+
+
+        <div class="form-group">
+          <label>bazu </label>
+          <input type="text" class="form-control" placeholder="Enter bazu" formControlName="bazu">
+        </div>
+        <div class="form-group">
+          <label>teera </label>
+          <input type="text" class="form-control" placeholder="Enter teera" formControlName="teera">
+        </div>
+        <div class="form-group">
+          <label>gala </label>
+          <input type="text" class="form-control" placeholder="Enter gala" formControlName="gala">
+        </div>
+        <div class="form-group">
+          <label>chhati </label>
+          <input type="text" class="form-control" placeholder="Enter chhati" formControlName="chhati">
+        </div>
+        <div class="form-group">
+          <label>qamar </label>
+          <input type="text" class="form-control" placeholder="Enter qamar" formControlName="qamar">
+        </div>
+        <div class="form-group">
+          <label>ghera </label>
+          <input type="text" class="form-control" placeholder="Enter ghera" formControlName="ghera">
+        </div>
+        <div class="form-group">
+          <label>shalwar </label>
+          <input type="text" class="form-control" placeholder="Enter shalwar" formControlName="shalwar">
+        </div>
+        <div class="form-group">
+          <label>pancha </label>
+          <input type="text" class="form-control" placeholder="Enter pancha" formControlName="pancha">
+        </div>
+        <div class="form-group">
+          <label>packet samne </label>
+          <input type="text" class="form-control" placeholder="Enter Packet Samne" formControlName="packet_samne">
+        </div>
+        <div class="form-group">
+          <label>packet side </label>
+          <input type="text" class="form-control" placeholder="Enter Packet Side" formControlName="packet_side">
+        </div>
+        <div class="form-group">
+          <label>packet shalwar </label>
+          <input type="text" class="form-control" placeholder="Enter Packet Shalwar" formControlName="packet_shalwar">
+        </div>
+
+        <div class="form-group">
+          <label>description </label>
+          <input type="text" class="form-control" placeholder="Enter description" formControlName="description">
         </div>
 
         <div class="text-right">
@@ -126,4 +165,7 @@
       </form>
     </div>
   </div>
+
+
+
 </ng-template>

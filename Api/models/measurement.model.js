@@ -26,7 +26,10 @@ const measurement = new Schema({
     
     description: String,
 
-    status: String
+    status: {
+        type: String,
+        default: 'true'
+    }
     
 },{timestamps: true});
 

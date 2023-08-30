@@ -17,24 +17,32 @@
             <table class="table table-centered">
               <thead class="thead-light">
                 <tr>
-                  <th>Order ID</th>
-                  <th>Date</th>
-                  <th>Billing Name</th>
-                  <th>Total</th>
-                  <th>Action</th>
+                  <th>Name</th>
+                  <th>Tailor ID</th>
+                  <th>Phone</th>
+
+                  <th>Lmbai</th>
+                  <th>Bazu</th>
+                  <th>Ghera</th>
+                  <th>Shalwar</th>
+
+                  <th>Description</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of transactions|filter:term">
-                  <td (click)="openModal(content)" >{{item.orderid}}</td>
-                  <td>{{item.date}}</td>
-                  <td>{{item.billingname}}</td>
-                  <td>{{item.total}}</td>
-                  
+                <tr style="cursor: pointer;" *ngFor="let item of measurements|filter:term">
+                  <td (click)="openModal(content, item)" >{{item.user_id_ref?.name||''}}</td>
+                  <td (click)="openModal(content, item)" >{{item.user_id_ref?.tailor_id||''}}</td>
+                  <td (click)="openModal(content, item)" >{{item.user_id_ref?.phone||''}}</td>
+                  <td (click)="openModal(content, item)" >{{item.lmbai}}</td>
+
+                  <td (click)="openModal(content, item)" >{{item.bazu}}</td>
+                  <td (click)="openModal(content, item)" >{{item.ghera}}</td>
+                  <td (click)="openModal(content, item)" >{{item.shalwar}}</td>
+                  <td (click)="openModal(content, item)" >{{item.description}}</td>
+
                   <td>
-                    <a href="javascript:void(0);" class="mr-3 text-primary" ngbTooltip="Edit"><i
-                        class="mdi mdi-pencil font-size-18"></i></a>
-                    <a href="javascript:void(0);" class="text-danger" ngbTooltip="Delete"><i
+                    <a (click)="deleteMeasurement(item)" class="text-danger" ngbTooltip="Delete"><i
                         class="mdi mdi-trash-can font-size-18"></i></a>
                   </td>
                 </tr>
@@ -49,16 +57,38 @@
 </div>
 
 
-<ng-template #content role="document" let-modal="close">
+<ng-template  style="width: 1200px !important;" #content role="document" let-modal="close">
   <div class="modal-header">
-    <h5 class="modal-title">Add Contacts</h5>
+    <h5 class="modal-title">Measurements</h5>
     <button type="button" class="close" aria-label="Close" (click)="modal('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body p-3">
     <div class="text-left">
-      hii
+      <div class="matrix-container">
+        <div class="matrix-cell">{{'Name : '+selectedMeasuer.user_id_ref?.name}}</div>
+        <div class="matrix-cell">{{'Tailor Id : '+selectedMeasuer.user_id_ref?.tailor_id}}</div>
+        <div class="matrix-cell">{{'Phone : '+selectedMeasuer.user_id_ref?.phone}}</div>
+        <div class="matrix-cell">{{'Description : '+selectedMeasuer.description}}</div>
+
+        <div class="matrix-cell">{{'Lambai : '+selectedMeasuer.lmbai}}</div>
+        <div class="matrix-cell">{{'Bazu : '+selectedMeasuer.bazu}}</div>
+        <div class="matrix-cell">{{'Teera : '+selectedMeasuer.teera}}</div>
+        <div class="matrix-cell">{{'Gala : '+selectedMeasuer.gala}}</div>
+
+        <div class="matrix-cell">{{'Chhati : '+selectedMeasuer.chhati}}</div>
+        <div class="matrix-cell">{{'Qamar : '+selectedMeasuer.qamar}}</div>
+        <div class="matrix-cell">{{'Ghera : '+selectedMeasuer.ghera}}</div>
+        <div class="matrix-cell">{{'Shalwar : '+selectedMeasuer.shalwar}}</div>
+
+        <div class="matrix-cell">{{'Pancha : '+selectedMeasuer.pancha}}</div>
+        <div class="matrix-cell">{{'Packet front : '+selectedMeasuer.packet_samne}}</div>
+        <div class="matrix-cell">{{'Packet Side : '+selectedMeasuer.packet_side}}</div>
+        <div class="matrix-cell">{{'Packet Shalwar : '+selectedMeasuer.packet_shalwar}}</div>
+
+
+      </div>
     </div>
   </div>
 </ng-template>

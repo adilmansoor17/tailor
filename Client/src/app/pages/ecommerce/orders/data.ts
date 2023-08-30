@@ -1,88 +1,88 @@
-const ordersData = [
+const customersData = [
     {
-        orderid: '#NZ1563',
-        date: '28 Mar, 2020',
-        billingname: 'Frank Dean',
-        total: '$164',
-        paymentstatus: 'Unpaid'
+        name: 'Carolyn Harvey',
+        email: 'CarolynHarvey@rhyta.com',
+        phone: '580-464-4694',
+        balance: '$ 3245',
+        date: '06 Apr, 2020'
     },
     {
-        orderid: '#NZ1564',
-        date: '28 Mar, 2020',
-        billingname: 'Eddy Torres',
-        total: '$141',
-        paymentstatus: 'Paid'
+        name: 'Angelyn Hardin',
+        email: 'AngelynHardin@dayrep.com',
+        phone: '913-248-2690',
+        balance: '$ 2435',
+        date: '05 Apr, 2020'
     },
     {
-        orderid: '#NZ1565',
-        date: '29 Mar, 2020',
-        billingname: 'Jamison Clark',
-        total: '$123',
-        paymentstatus: 'Paid'
+        name: 'Carrie Thompson',
+        email: 'CarrieThompson@rhyta.com',
+        phone: '734-819-9286',
+        balance: '$ 2653',
+        date: '04 Apr, 2020'
     },
     {
-        orderid: '#NZ1566',
-        date: '30 Mar, 2020',
-        billingname: 'Jewel Buckley',
-        total: '$112',
-        paymentstatus: 'Paid'
+        name: 'Kathleen Haller',
+        email: 'KathleenHaller@dayrep.com',
+        phone: '313-742-3333',
+        balance: '$ 2135',
+        date: '03 Apr, 2020'
     },
     {
-        orderid: '#NZ1567',
-        date: '31 Mar, 2020',
-        billingname: 'Jeffrey Waltz',
-        total: '$105',
-        paymentstatus: 'Unpaid'
+        name: 'Martha Beasley',
+        email: 'MarthaBeasley@teleworm.us',
+        phone: '301-330-5745',
+        balance: '$ 2698',
+        date: '02 Apr, 2020'
     },
     {
-        orderid: '#NZ1568',
-        date: '01 Apr, 2020',
-        billingname: 'Jefferson Allen',
-        total: '$160',
-        paymentstatus: 'Chargeback'
+        name: 'Kathryn Hudson',
+        email: 'KathrynHudson@armyspy.com',
+        phone: '414-453-5725',
+        balance: '$ 2758',
+        date: '02 Apr, 2020'
     },
     {
-        orderid: '#NZ1569',
-        date: '02 Apr, 2020',
-        billingname: 'Paul Jones',
-        total: '$183',
-        paymentstatus: 'Paid'
+        name: 'Robert Bott',
+        email: 'RobertBott@armyspy.com',
+        phone: '712-237-9899',
+        balance: '$ 2836',
+        date: '01 Apr, 2020'
     },
     {
-        orderid: '#NZ1570',
-        date: '03 Apr, 2020',
-        billingname: 'Donald Bailey',
-        total: '$146',
-        paymentstatus: 'Paid'
+        name: 'Mary McDonald',
+        email: 'MaryMcDonald@armyspy.com',
+        phone: '317-510-25554',
+        balance: '$ 3245',
+        date: '31 Mar, 2020'
     },
     {
-        orderid: '#NZ1571',
-        date: '03 Apr, 2020',
-        billingname: 'Jimmy Barker',
-        total: '$165',
-        paymentstatus: 'Unpaid'
+        name: 'Keith Rainey',
+        email: 'KeithRainey@jourrapide.com',
+        phone: '214-712-1810',
+        balance: '$ 3125',
+        date: '30 Mar, 2020'
     },
     {
-        orderid: '#NZ1572',
-        date: '04 Apr, 2020',
-        billingname: 'Walter Brown',
-        total: '$172',
-        paymentstatus: 'Paid'
+        name: 'Anthony Russo',
+        email: 'AnthonyRusso@jourrapide.com',
+        phone: '412-371-8864',
+        balance: '$ 2456',
+        date: '30 Mar, 2020'
     },
     {
-        orderid: '#NZ1573',
-        date: '06 Apr, 2020',
-        billingname: 'James Hamilton',
-        total: '$152',
-        paymentstatus: 'Paid'
+        name: 'Donna Betz',
+        email: 'DonnaBetz@jourrapide.com',
+        phone: '626-583-5779',
+        balance: '$ 3423',
+        date: '29 Mar, 2020'
     },
     {
-        orderid: '#NZ1574',
-        date: '08 Apr, 2020',
-        billingname: 'Smith Velly',
-        total: '$158',
-        paymentstatus: 'Unpaid'
+        name: 'Angie Andres',
+        email: 'AngieAndres@armyspy.com',
+        phone: '213-494-4527',
+        balance: '$ 3245',
+        date: '28 Apr, 2020'
     }
 ];
 
-export { ordersData };
+export { customersData };

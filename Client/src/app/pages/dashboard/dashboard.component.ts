@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { latLng, tileLayer } from 'leaflet';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ChartType, Stat, Chat, Transaction } from './dashboard.model';
 
@@ -23,7 +24,7 @@ export class DashboardComponent implements OnInit {
   transactions: Transaction[];
   statData: Stat[];
 
-  constructor(public formBuilder: FormBuilder,
+  constructor(private modalService: NgbModal, public formBuilder: FormBuilder,
     public userService: UserService) {
   }
 
@@ -50,14 +51,13 @@ export class DashboardComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'FazalMart' }, { label: 'Dashboard', active: true }];
     this.formData = this.formBuilder.group({
       message: ['', [Validators.required]],
     });
     this._fetchData();
 
   }
-
+ 
   private _fetchData() {
     this.revenueChart = revenueChart;
     this.salesAnalytics = salesAnalytics;
@@ -103,4 +103,11 @@ export class DashboardComponent implements OnInit {
 
     this.chatSubmit = true;
   }
+    /**
+   * Modal Open
+   * @param content modal content
+   */
+    openModal(content: any) {
+      this.modalService.open(content, { centered: true });
+    }
 }

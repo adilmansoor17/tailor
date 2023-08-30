@@ -1,183 +1,88 @@
-import { ProductModel } from './products.model';
-
-export const productList: ProductModel[] = [
+const customersData = [
     {
-        id: 1,
-        category: 'Blue color, T-shirt',
-        name: 'Full sleeve T-shirt',
-        ratings: 0,
-        reviewCount: 0,
-        discount: 10,
-        oriRate: 450,
-        disRate: 405,
-        // tslint:disable-next-line: max-line-length
-        feature: ['Full Sleeve', 'highest quality fabric', 'Cotton', 'All Sizes available', '4 Different Color'],
-        specification: [{
-            key: 'size',
-            value: 'M'
-        },
-        {
-            key: 'color',
-            value: 'red'
-        }],
-        images: ['assets/images/product/img-1.png', 'assets/images/product/img-1.png', 'assets/images/product/img-1.png'],
-        colorVariant: [{
-            key: 'red',
-            value: 'assets/images/product/img-1.png'
-        },
-        {
-            key: 'black',
-            value: 'assets/images/product/img-1.png'
-        }]
+        name: 'Carolyn Harvey',
+        email: 'CarolynHarvey@rhyta.com',
+        phone: '580-464-4694',
+        balance: '$ 3245',
+        date: '06 Apr, 2020'
     },
     {
-        id: 2,
-        category: 'Half sleeve, T-shirt',
-        name: 'Half sleeve T-shirt',
-        ratings: 0,
-        reviewCount: 0,
-        discount: 20,
-        oriRate: 225,
-        disRate: 175,
-        // tslint:disable-next-line: max-line-length
-        feature: ['Full Sleeve', 'highest quality fabric', 'Cotton', 'All Sizes available', '4 Different Color'],
-        specification: [{
-            key: 'size',
-            value: 'M'
-        },
-        {
-            key: 'color',
-            value: 'Light Blue'
-        }],
-        images: ['assets/images/product/img-2.png', 'assets/images/product/img-2.png', 'assets/images/product/img-2.png'],
-        colorVariant: [{
-            key: 'red',
-            value: 'assets/images/product/img-2.png'
-        },
-        {
-            key: 'yellow',
-            value: 'assets/images/product/img-2.png'
-        },
-        {
-            key: 'green',
-            value: 'assets/images/product/img-2.png'
-        }
-        ]
+        name: 'Angelyn Hardin',
+        email: 'AngelynHardin@dayrep.com',
+        phone: '913-248-2690',
+        balance: '$ 2435',
+        date: '05 Apr, 2020'
     },
     {
-        id: 3,
-        category: 'Green color, Hoodie',
-        name: 'Hoodie (Green)',
-        ratings: 0,
-        reviewCount: 0,
-        discount: 14,
-        oriRate: 177,
-        disRate: 152,
-        // tslint:disable-next-line: max-line-length
-        feature: ['Full Sleeve', 'highest quality fabric', 'Cotton', 'All Sizes available', '4 Different Color'],
-        specification: [{
-            key: 'size',
-            value: 'M'
-        },
-        {
-            key: 'color',
-            value: 'Green'
-        }],
-        images: ['assets/images/product/img-3.png', 'assets/images/product/img-3.png', 'assets/images/product/img-3.png'],
-        colorVariant: [{
-            key: 'Green',
-            value: 'assets/images/product/img-3.png'
-        },
-        {
-            key: 'Green',
-            value: 'assets/images/product/img-3.png'
-        }]
+        name: 'Carrie Thompson',
+        email: 'CarrieThompson@rhyta.com',
+        phone: '734-819-9286',
+        balance: '$ 2653',
+        date: '04 Apr, 2020'
     },
     {
-        id: 4,
-        category: 'Gray color, Hoodie',
-        name: 'Hoodie (Gray)',
-        ratings: 4,
-        reviewCount: 152,
-        discount: 5,
-        oriRate: 150,
-        disRate: 145,
-        // tslint:disable-next-line: max-line-length
-        feature: ['Full Sleeve', 'highest quality fabric', 'Cotton', 'All Sizes available', '4 Different Color'],
-        specification: [{
-            key: 'size',
-            value: 'M'
-        },
-        {
-            key: 'color',
-            value: 'Gray'
-        }],
-        images: ['assets/images/product/img-4.png', 'assets/images/product/img-4.png', 'assets/images/product/img-4.png'],
-        colorVariant: [{
-            key: 'Gray',
-            value: 'assets/images/product/img-4.png'
-        },
-        {
-            key: 'Gray',
-            value: 'assets/images/product/img-4.png'
-        }]
+        name: 'Kathleen Haller',
+        email: 'KathleenHaller@dayrep.com',
+        phone: '313-742-3333',
+        balance: '$ 2135',
+        date: '03 Apr, 2020'
     },
     {
-        id: 5,
-        category: 'Blue color, T-shirt',
-        name: 'Full sleeve T-shirt',
-        ratings: 0,
-        reviewCount: 0,
-        discount: 14,
-        oriRate: 177,
-        disRate: 152,
-        // tslint:disable-next-line: max-line-length
-        feature: ['Full Sleeve', 'highest quality fabric', 'Cotton', 'All Sizes available', '4 Different Color'],
-        specification: [{
-            key: 'size',
-            value: 'M'
-        },
-        {
-            key: 'color',
-            value: 'Blue'
-        }],
-        images: ['assets/images/product/img-5.png', 'assets/images/product/img-5.png', 'assets/images/product/img-5.png'],
-        colorVariant: [{
-            key: 'pink',
-            value: 'assets/images/product/img-5.png'
-        },
-        {
-            key: 'yellow',
-            value: 'assets/images/product/img-5.png'
-        }]
+        name: 'Martha Beasley',
+        email: 'MarthaBeasley@teleworm.us',
+        phone: '301-330-5745',
+        balance: '$ 2698',
+        date: '02 Apr, 2020'
     },
     {
-        id: 6,
-        category: 'Black color, T-shirt',
-        name: 'Half sleeve T-shirt',
-        ratings: 0,
-        reviewCount: 0,
-        discount: 22,
-        oriRate: 240,
-        disRate: 225,
-        // tslint:disable-next-line: max-line-length
-        feature: ['Full Sleeve', 'highest quality fabric', 'Cotton', 'All Sizes available', '4 Different Color'],
-        specification: [{
-            key: 'size',
-            value: 'M'
-        },
-        {
-            key: 'color',
-            value: 'black'
-        }],
-        images: ['assets/images/product/img-6.png', 'assets/images/product/img-6.png', 'assets/images/product/img-6.png'],
-        colorVariant: [{
-            key: 'black',
-            value: 'assets/images/product/img-6.png'
-        },
-        {
-            key: 'yellow',
-            value: 'assets/images/product/img-6.png'
-        }]
+        name: 'Kathryn Hudson',
+        email: 'KathrynHudson@armyspy.com',
+        phone: '414-453-5725',
+        balance: '$ 2758',
+        date: '02 Apr, 2020'
+    },
+    {
+        name: 'Robert Bott',
+        email: 'RobertBott@armyspy.com',
+        phone: '712-237-9899',
+        balance: '$ 2836',
+        date: '01 Apr, 2020'
+    },
+    {
+        name: 'Mary McDonald',
+        email: 'MaryMcDonald@armyspy.com',
+        phone: '317-510-25554',
+        balance: '$ 3245',
+        date: '31 Mar, 2020'
+    },
+    {
+        name: 'Keith Rainey',
+        email: 'KeithRainey@jourrapide.com',
+        phone: '214-712-1810',
+        balance: '$ 3125',
+        date: '30 Mar, 2020'
+    },
+    {
+        name: 'Anthony Russo',
+        email: 'AnthonyRusso@jourrapide.com',
+        phone: '412-371-8864',
+        balance: '$ 2456',
+        date: '30 Mar, 2020'
+    },
+    {
+        name: 'Donna Betz',
+        email: 'DonnaBetz@jourrapide.com',
+        phone: '626-583-5779',
+        balance: '$ 3423',
+        date: '29 Mar, 2020'
+    },
+    {
+        name: 'Angie Andres',
+        email: 'AngieAndres@armyspy.com',
+        phone: '213-494-4527',
+        balance: '$ 3245',
+        date: '28 Apr, 2020'
     }
 ];
+
+export { customersData };

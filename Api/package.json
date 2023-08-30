@@ -1,0 +1,56 @@
+{
+    "name": "test",
+    "version": "1.0.0",
+    "description": "A POS system for Fazal Mart",
+    "author": "Adil Mansoor",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www.js",
+        "dev": "nodemon server",
+        "dev:env": "nodemon -r dotenv/config server.js",
+        "dev:test": "nodemon -r dotenv/config testScript.js"
+    },
+    "dependencies": {
+        "@aws-crypto/client-node": "^1.9.1",
+        "@ffmpeg-installer/ffmpeg": "^1.0.20",
+        "@skavinvarnan/cryptlib": "^1.0.3",
+        "@types/mongoose": "^5.5.43",
+        "adm-zip": "^0.5.4",
+        "async-polling": "^0.2.1",
+        "axios": "^1.4.0",
+        "body-parser": "^1.20.2",
+        "cheerio": "^1.0.0-rc.12",
+        "chromedriver": "^113.0.0",
+        "cors": "^2.8.5",
+        "cron": "^1.8.2",
+        "crypto-js": "^4.0.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.18.2",
+        "express-fileupload": "^1.4.0",
+        "fast-date-format": "^2.2.3",
+        "fs": "0.0.1-security",
+        "fs-extra": "^8.1.0",
+        "lodash": "^4.17.21",
+        "mammoth": "^1.5.1",
+        "moment": "^2.29.4",
+        "moment-timezone": "^0.5.43",
+        "mongodb": "^3.5.2",
+        "mongoose": "^5.13.17",
+        "morgan": "^1.9.1",
+        "npm": "^9.6.6",
+        "path": "^0.12.7",
+        "promise-retry": "^2.0.1",
+        "request": "^2.88.0",
+        "utf8": "^3.0.0",
+        "util": "^0.11.1",
+        "uuid": "^3.3.3",
+        "winston": "^3.8.2",
+        "zip-folder": "^1.0.0"
+    },
+    "browser": {
+        "@skavinvarnan/cryptlib": false
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1"
+    }
+}

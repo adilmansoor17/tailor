@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { productList } from './data';
-import { ProductModel } from './products.model';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { customersData } from './data';
+
+import { Customers } from './products.model';
 
 import { Options } from 'ng5-slider';
 
@@ -12,61 +16,77 @@ import { Options } from 'ng5-slider';
 })
 export class ProductsComponent implements OnInit {
 
+  // breadcrumb items
   breadCrumbItems: Array<{}>;
-  productList: ProductModel[];
 
-  public products: ProductModel[] = [];
+  submitted: boolean;
 
-  pricevalue = 250;
-  minVal = 100;
-  maxVal = 800;
-  priceoption: Options = {
-    floor: 0,
-    ceil: 1000,
-    translate: (value: number): string => {
-      return '$' + value;
-    },
-  };
+  customersData: Customers[];
+  validationform: FormGroup;
 
-  isCollapsed: boolean;
-  collapsed: boolean;
-  collapsed3: boolean;
-
-  constructor() { }
+  constructor(private modalService: NgbModal, public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Ecommerce' }, { label: 'Product', active: true }];
-    this.products = Object.assign([], productList);
+    this.breadCrumbItems = [{ label: 'Ecommerce' }, { label: 'Customers', active: true }];
 
-    this.isCollapsed = true;
-    this.collapsed = true;
-    this.collapsed3 = true;
+    this.validationform = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      balance: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      date: ['', [Validators.required]],
+    });
 
-    this.productList = productList;
+    this._fetchData();
+  }
+
+  private _fetchData() {
+    this.customersData = customersData;
+    // console.log("csssss : ", this.customersData, customersData);
+
   }
 
   /**
-   * search the record
-   * @param e element
+   * Returns form
    */
-  searchFilter(e) {
-    const searchStr = e.target.value;
-    this.products = productList.filter((product) => {
-      return product.name.toLowerCase().search(searchStr.toLowerCase()) !== -1;
-    });
+  get form() {
+    return this.validationform.controls;
+  }
+  /**
+   * Modal Open
+   * @param content modal content
+   */
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true });
   }
 
-  /***
-   * slider change fetch the record
+  /**
+   * save the contacts data
    */
-  valueChange(value: number, boundary: boolean): void {
-    if (boundary) {
-      this.minVal = value;
-    } else {
-      this.maxVal = value;
-      this.products = productList.filter(function(product) {
-        return product.disRate <= value && product.disRate >= this;
-      }, this.minVal);
+  saveData() {
+    const name = this.validationform.get('name').value;
+    const phone = this.validationform.get('phone').value;
+    const balance = this.validationform.get('balance').value;
+    const email = this.validationform.get('email').value;
+    const date = this.validationform.get('date').value;
+    if (this.validationform.valid) {
+      this.customersData.push({
+        name,
+        phone,
+        balance,
+        email,
+        date
+      });
+      this.validationform = this.formBuilder.group({
+        name: '',
+        phone: '',
+        balance: '',
+        email: '',
+        date: ''
+      });
+      this.modalService.dismissAll();
     }
+    this.submitted = true;
   }
+
 }

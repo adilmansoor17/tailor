@@ -2,66 +2,93 @@ import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 
-import { Order } from './orders.model';
-import { ordersData } from './data';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
-import { OrderSortableDirective, SortEvent } from './orders-sortable.directive';
-import { OrderService } from './orders.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { customersData } from './data';
+
+import { Customers } from './orders.model';
+
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss'],
-  providers: [OrderService, DecimalPipe]
 
 })
 export class OrdersComponent implements OnInit {
 
-  @ViewChildren(OrderSortableDirective) headers: QueryList<OrderSortableDirective>;
-
   // breadcrumb items
   breadCrumbItems: Array<{}>;
 
-  // Table data
-  ordersData: Order[];
+  submitted: boolean;
 
-  tables$: Observable<Order[]>;
-  total$: Observable<number>;
+  customersData: Customers[];
+  validationform: FormGroup;
 
-  constructor(public service: OrderService) {
-    this.tables$ = service.tables$;
-    this.total$ = service.total$;
-  }
+  constructor(private modalService: NgbModal, public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Ecommerce' }, { label: 'Orders', active: true }];
+    this.breadCrumbItems = [{ label: 'Ecommerce' }, { label: 'Customers', active: true }];
 
-    /**
-     * fetch data
-     */
+    this.validationform = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      balance: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      date: ['', [Validators.required]],
+    });
+
     this._fetchData();
   }
 
-  /**
-   * fetches the table value
-   */
-  _fetchData() {
-    this.ordersData = ordersData;
+  private _fetchData() {
+    this.customersData = customersData;
+    // console.log("csssss : ", this.customersData, customersData);
+
   }
 
   /**
-   * Sort table data
-   * @param param0 sort the column
-   *
+   * Returns form
    */
-  onSort({ column, direction }: SortEvent) {
-    // resetting other headers
-    this.headers.forEach(header => {
-      if (header.sortable !== column) {
-        header.direction = '';
-      }
-    });
-    this.service.sortColumn = column;
-    this.service.sortDirection = direction;
+  get form() {
+    return this.validationform.controls;
   }
+  /**
+   * Modal Open
+   * @param content modal content
+   */
+  openModal(content: any) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  /**
+   * save the contacts data
+   */
+  saveData() {
+    const name = this.validationform.get('name').value;
+    const phone = this.validationform.get('phone').value;
+    const balance = this.validationform.get('balance').value;
+    const email = this.validationform.get('email').value;
+    const date = this.validationform.get('date').value;
+    if (this.validationform.valid) {
+      this.customersData.push({
+        name,
+        phone,
+        balance,
+        email,
+        date
+      });
+      this.validationform = this.formBuilder.group({
+        name: '',
+        phone: '',
+        balance: '',
+        email: '',
+        date: ''
+      });
+      this.modalService.dismissAll();
+    }
+    this.submitted = true;
+  }
+
 }

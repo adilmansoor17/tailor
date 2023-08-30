@@ -15,6 +15,7 @@ export class CustomersComponent implements OnInit {
 
   // breadcrumb items
   breadCrumbItems: Array<{}>;
+  term: any;
 
   submitted: boolean;
 
@@ -24,7 +25,6 @@ export class CustomersComponent implements OnInit {
   constructor(private modalService: NgbModal, public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Ecommerce' }, { label: 'Customers', active: true }];
 
     this.validationform = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -39,8 +39,9 @@ export class CustomersComponent implements OnInit {
 
   private _fetchData() {
     this.customersData = customersData;
+    console.log("csssss : ", this.customersData, customersData);
   }
-
+ 
   /**
    * Returns form
    */

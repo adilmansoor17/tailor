@@ -11,12 +11,10 @@ import { DropzoneModule } from 'ngx-dropzone-wrapper';
 
 import { UiModule } from '../../shared/ui/ui.module';
 
-import { OrderSortableDirective } from './orders/orders-sortable.directive';
 
 import { EcommerceRoutingModule } from './ecommerce-routing.module';
 
 import { ProductsComponent } from './products/products.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { OrdersComponent } from './orders/orders.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CartComponent } from './cart/cart.component';
@@ -26,7 +24,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   // tslint:disable-next-line: max-line-length
-  declarations: [ProductsComponent, ProductDetailComponent, OrdersComponent, CustomersComponent, CartComponent, CheckoutComponent, ShopsComponent, AddProductComponent, OrderSortableDirective],
+  declarations: [ProductsComponent, OrdersComponent, CustomersComponent, CartComponent, CheckoutComponent, ShopsComponent, AddProductComponent],
   imports: [
     CommonModule,
     FormsModule,

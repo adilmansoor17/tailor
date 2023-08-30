@@ -10,71 +10,39 @@ export class ApiService {
         private _httpclient: HttpClient,
     ) { }
 
-    getUser(filter, projection) {
-        const details = {
-            filter,
-            projection
-        }
+    getUser(filter) {
         return this._httpclient
-            .post(`http://localhost:8086/api/person/getUser`, { details }).pipe();
+            .post(`http://localhost:8086/api/person/getUser`, { details:filter }).pipe();
     }
 
-    getMeasurement(filter, projection) {
-        const details = {
-            filter,
-            projection
-        }
+    getMeasurement(filter) {
         return this._httpclient
-            .post(`http://localhost:8086/api/measurement/getMeasurement`, { details }).pipe();
+            .post(`http://localhost:8086/api/measurement/getMeasurement`, { details:filter }).pipe();
     }
 
-    addUser(filter, projection) {
-        const details = {
-            filter,
-            projection
-        }
+    addUser(filter) {
         return this._httpclient
-            .post(`http://localhost:8086/api/person/addUser`, { details }).pipe();
+            .post(`http://localhost:8086/api/person/addUser`, { details:filter }).pipe();
     }
 
-    searchUser(filter, projection) {
-        const details = {
-            filter,
-            projection
-        }
+    searchUser(filter) {
         return this._httpclient
-            .post(`http://localhost:8086/api/person/searchUser`, { details }).pipe();
+            .post(`http://localhost:8086/api/person/searchUser`, { details:filter }).pipe();
     }
-    deleteUser(filter, projection) {
-        const details = {
-            filter,
-            projection
-        }
+    deleteUser(filter) {
         return this._httpclient
-            .post(`http://localhost:8086/api/person/deleteUser`, { details }).pipe();
+            .post(`http://localhost:8086/api/person/deleteUser`, { details:filter }).pipe();
     }
-    deleteMeasurement(filter, projection) {
-        const details = {
-            filter,
-            projection
-        }
+    deleteMeasurement(filter) {
         return this._httpclient
-            .post(`http://localhost:8086/api/measurement/deleteMeasurement`, { details }).pipe();
+            .post(`http://localhost:8086/api/measurement/deleteMeasurement`, { details:filter }).pipe();
     }
-    searchMeasurement(filter, projection) {
-        const details = {
-            filter,
-            projection
-        }
+    searchMeasurement(filter) {
         return this._httpclient
-            .post(`http://localhost:8086/api/measurement/deleteMeasurement`, { details }).pipe();
+            .post(`http://localhost:8086/api/measurement/deleteMeasurement`, { details:filter }).pipe();
     }
-    editMeasurement(filter, projection) {
-        const details = {
-            filter,
-            projection
-        }
+    editMeasurement(filter) {
         return this._httpclient
-            .post(`http://localhost:8086/api/measurement/deleteMeasurement`, { details }).pipe();
+            .post(`http://localhost:8086/api/measurement/deleteMeasurement`, { details:filter }).pipe();
     }
 }

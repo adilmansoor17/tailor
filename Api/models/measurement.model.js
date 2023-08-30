@@ -13,12 +13,12 @@ const measurement = new Schema({
     bazu: String,
     teera: String,
     gala: String,
-    gala: String,
+    chhati: String,
 
-    gala: String,
-    gala: String,
-    gala: String,
-    gala: String,
+    qamar: String,
+    ghera: String,
+    shalwar: String,
+    pancha: String,
 
     packet_samne: String,
     packet_side: String,

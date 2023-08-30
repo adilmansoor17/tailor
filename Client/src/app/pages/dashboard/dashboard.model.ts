@@ -32,3 +32,28 @@ export interface Transaction {
     total: string;
     paymentstatus: string;
 }
+
+export interface measurement {
+    tailor_id: String,
+    name: String,
+    user_id_ref:String
+
+    lmbai: String,
+    bazu: String,
+    teera: String,
+    gala: String,
+    chhati: String,
+
+    qamar: String,
+    ghera: String,
+    shalwar: String,
+    pancha: String,
+
+    packet_samne: String,
+    packet_side: String,
+    packet_shalwar: String,
+    
+    description: String,
+
+    status: String
+}

@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit {
     this.transactions = transactions;
     this.statData = statData;
 
-    this.userService.getUser({},{}).subscribe((res: any) => {
+    this.userService.getUser({}).subscribe((res: any) => {
       console.log(res);
     } );
 

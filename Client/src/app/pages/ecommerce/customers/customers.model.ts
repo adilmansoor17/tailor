@@ -5,3 +5,14 @@ export interface Customers {
     balance: string;
     date: string;
 }
+
+export interface person{
+    tailor_id: String,
+    name: String,
+    age: String,
+    phone: String,
+    email: String,
+    address: String,
+    status: String
+    
+}

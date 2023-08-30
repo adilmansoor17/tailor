@@ -6,7 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChartType, Stat, Chat, Transaction } from './dashboard.model';
 
 import { statData, revenueChart, salesAnalytics, sparklineEarning, sparklineMonthly, chatData, transactions } from './data';
-import { UserService } from 'src/app/Services/initialData.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   statData: Stat[];
 
   constructor(private modalService: NgbModal, public formBuilder: FormBuilder,
-    public userService: UserService) {
+    public userService: ApiService) {
   }
 
   // bread crumb items

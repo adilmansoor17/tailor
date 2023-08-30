@@ -32,7 +32,7 @@ const controller = (req) => {
       },
 
       
-      getData: async (res) => {
+      getUser: async (res) => {
         try {
           
           let jsonData = req.body.data;

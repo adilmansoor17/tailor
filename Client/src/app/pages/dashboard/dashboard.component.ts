@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import Swal from 'sweetalert2';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -50,10 +50,25 @@ export class DashboardComponent implements OnInit {
    */
 
   deleteMeasurement(item){
-    this.userService.deleteMeasurement({_id:item._id}).subscribe((res: any) => {
-      console.log(res);
-      this._fetchData();
-    } );
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#34c38f',
+      cancelButtonColor: '#f46a6a',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(result => {
+      if (result.value) {
+        this.userService.deleteMeasurement({_id:item._id}).subscribe((res: any) => {
+          console.log(res);
+          this._fetchData();
+        } );
+        Swal.fire('Deleted!', 'Measurement has been deleted.', 'success');
+      }
+    });
+
+
   }
 
   highlightRow(event: MouseEvent): void {

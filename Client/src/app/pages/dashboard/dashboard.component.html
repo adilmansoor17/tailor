@@ -8,7 +8,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-12">
               <div id="tickets-table_filter" class="dataTables_filter text-md-right"><label
-                  class="d-inline-flex align-items-center">Search:
+                  class="d-inline-flex align-items-center">تلاش
                   <input type="text" name="searchTerm" class="form-control form-control-sm ml-2"
                     aria-controls="tickets-table" [(ngModel)]="term" /></label></div>
             </div>
@@ -17,16 +17,16 @@
             <table class="table table-centered">
               <thead class="thead-light">
                 <tr>
-                  <th>Name</th>
+                  <th>نام</th>
                   <th>Tailor ID</th>
-                  <th>Phone</th>
+                  <th>فون نمبر</th>
 
-                  <th>Lmbai</th>
-                  <th>Bazu</th>
-                  <th>Ghera</th>
-                  <th>Shalwar</th>
+                  <th>لمبائی</th>
+                  <th>بازو</th>
+                  <th>گھیرا</th>
+                  <th>شلوار</th>
 
-                  <th>Description</th>
+                  <th>تفصیل</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,7 +35,7 @@
                   <td (click)="openModal(content, item)" >{{item.user_id_ref?.tailor_id||''}}</td>
                   <td (click)="openModal(content, item)" >{{item.user_id_ref?.phone||''}}</td>
                   <td (click)="openModal(content, item)" >{{item.lmbai}}</td>
-
+ 
                   <td (click)="openModal(content, item)" >{{item.bazu}}</td>
                   <td (click)="openModal(content, item)" >{{item.ghera}}</td>
                   <td (click)="openModal(content, item)" >{{item.shalwar}}</td>
@@ -59,7 +59,7 @@
 
 <ng-template  style="width: 1200px !important;" #content role="document" let-modal="close">
   <div class="modal-header">
-    <h5 class="modal-title">Measurements</h5>
+    <h5 class="modal-title">پیمائش</h5>
     <button type="button" class="close" aria-label="Close" (click)="modal('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -67,25 +67,25 @@
   <div class="modal-body p-3">
     <div class="text-left">
       <div class="matrix-container">
-        <div class="matrix-cell">{{'Name : '+selectedMeasuer.user_id_ref?.name}}</div>
+        <div class="matrix-cell">{{'نام : '+selectedMeasuer.user_id_ref?.name}}</div>
         <div class="matrix-cell">{{'Tailor Id : '+selectedMeasuer.user_id_ref?.tailor_id}}</div>
-        <div class="matrix-cell">{{'Phone : '+selectedMeasuer.user_id_ref?.phone}}</div>
-        <div class="matrix-cell">{{'Description : '+selectedMeasuer.description}}</div>
+        <div class="matrix-cell">{{'فون نمبر : '+selectedMeasuer.user_id_ref?.phone}}</div>
+        <div class="matrix-cell">{{'تفصیل : '+selectedMeasuer.description}}</div>
 
-        <div class="matrix-cell">{{'Lambai : '+selectedMeasuer.lmbai}}</div>
-        <div class="matrix-cell">{{'Bazu : '+selectedMeasuer.bazu}}</div>
-        <div class="matrix-cell">{{'Teera : '+selectedMeasuer.teera}}</div>
-        <div class="matrix-cell">{{'Gala : '+selectedMeasuer.gala}}</div>
+        <div class="matrix-cell">{{'لمبائی : '+selectedMeasuer.lmbai}}</div>
+        <div class="matrix-cell">{{'بازو : '+selectedMeasuer.bazu}}</div>
+        <div class="matrix-cell">{{'تیرا : '+selectedMeasuer.teera}}</div>
+        <div class="matrix-cell">{{'گلا : '+selectedMeasuer.gala}}</div>
 
-        <div class="matrix-cell">{{'Chhati : '+selectedMeasuer.chhati}}</div>
-        <div class="matrix-cell">{{'Qamar : '+selectedMeasuer.qamar}}</div>
-        <div class="matrix-cell">{{'Ghera : '+selectedMeasuer.ghera}}</div>
-        <div class="matrix-cell">{{'Shalwar : '+selectedMeasuer.shalwar}}</div>
+        <div class="matrix-cell">{{'چھاتی : '+selectedMeasuer.chhati}}</div>
+        <div class="matrix-cell">{{'کمر : '+selectedMeasuer.qamar}}</div>
+        <div class="matrix-cell">{{'گھیرا : '+selectedMeasuer.ghera}}</div>
+        <div class="matrix-cell">{{'شلوار : '+selectedMeasuer.shalwar}}</div>
 
-        <div class="matrix-cell">{{'Pancha : '+selectedMeasuer.pancha}}</div>
-        <div class="matrix-cell">{{'Packet front : '+selectedMeasuer.packet_samne}}</div>
-        <div class="matrix-cell">{{'Packet Side : '+selectedMeasuer.packet_side}}</div>
-        <div class="matrix-cell">{{'Packet Shalwar : '+selectedMeasuer.packet_shalwar}}</div>
+        <div class="matrix-cell">{{'پانچہ : '+selectedMeasuer.pancha}}</div>
+        <div class="matrix-cell">{{'پاکٹ سامنے : '+selectedMeasuer.packet_samne}}</div>
+        <div class="matrix-cell">{{'پاکٹ سائیڈ : '+selectedMeasuer.packet_side}}</div>
+        <div class="matrix-cell">{{'پاکٹ شلوار : '+selectedMeasuer.packet_shalwar}}</div>
 
 
       </div>

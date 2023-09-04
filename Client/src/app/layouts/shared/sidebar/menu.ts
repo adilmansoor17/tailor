@@ -8,13 +8,13 @@ export const MENU: MenuItem[] = [
     },
     {
         id: 2,
-        label: 'Measurements',
+        label: 'پیمائش',
         icon: 'ri-dashboard-line',
         link: '/'
     },
     {
         id: 3,
-        label: 'Persons',
+        label: 'گاہک',
         icon: 'ri-calendar-2-line',
         link: '/ecommerce/customers'
     }

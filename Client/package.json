@@ -1,7 +1,7 @@
 {
-  "name": "tailor",
+  "name": "fazalmart",
   "version": "1.0.0",
-  "description": "A POS system for Fazal Mart",
+  "description": "Tailor",
   "author": "Adil Mansoor",
   "main": "app.js",
   "scripts": {
@@ -13,8 +13,8 @@
     "e2e": "ng e2e",
     "electron": "electron .",
     "electron-build": "electron-builder",
-    "package-win": "electron-packager . tailor --overwrite --platform=win32 --arch=x64 --icon=src/assets/images/favicon.ico --prune=true --out=release-builds --version-string.ProductName=\"POS\"",
-    "package-mac": "electron-packager . tailor --overwrite --platform=darwin --arch=x64 --icon=src/favicon.icns --prune=true --out=release-builds"
+    "package-win": "electron-packager . fazalmart --overwrite --platform=win32 --arch=x64 --icon=src/assets/images/favicon.ico --prune=true --out=release-builds --version-string.ProductName=\"POS\"",
+    "package-mac": "electron-packager . fazalmart --overwrite --platform=darwin --arch=x64 --icon=src/favicon.icns --prune=true --out=release-builds"
   },
   "private": true,
   "dependencies": {

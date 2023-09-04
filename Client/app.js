@@ -32,7 +32,7 @@ const {app, BrowserWindow, ipcMain} = require('electron');
       mainWindow.maximize();
       mainWindow.show();
       
-      mainWindow.webContents.openDevTools()
+      // mainWindow.webContents.openDevTools()
 
       mainWindow.on('closed', function () {
         mainWindow = null

@@ -18,7 +18,7 @@
               <thead class="thead-light">
                 <tr>
                   <th>نام</th>
-                  <th>Tailor ID</th>
+                  <th>گاہک نمبر</th>
                   <th>فون نمبر</th>
 
                   <th>لمبائی</th>
@@ -67,10 +67,10 @@
   <div class="modal-body p-3">
     <div class="text-left">
       <div class="matrix-container">
-        <div class="matrix-cell">{{'نام : '+selectedMeasuer.user_id_ref?.name}}</div>
-        <div class="matrix-cell">{{'Tailor Id : '+selectedMeasuer.user_id_ref?.tailor_id}}</div>
-        <div class="matrix-cell">{{'فون نمبر : '+selectedMeasuer.user_id_ref?.phone}}</div>
-        <div class="matrix-cell">{{'تفصیل : '+selectedMeasuer.description}}</div>
+        <div class="matrix-cell">{{selectedMeasuer.user_id_ref?.name}}</div>
+        <div class="matrix-cell">{{selectedMeasuer.user_id_ref?.tailor_id}}</div>
+        <div class="matrix-cell">{{selectedMeasuer.user_id_ref?.phone}}</div>
+        <div class="matrix-cell">{{selectedMeasuer.description}}</div>
 
         <div class="matrix-cell">{{'لمبائی : '+selectedMeasuer.lmbai}}</div>
         <div class="matrix-cell">{{'بازو : '+selectedMeasuer.bazu}}</div>

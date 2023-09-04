@@ -189,20 +189,20 @@ export class CustomersComponent implements OnInit {
 
   deleteUser(item) {
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You won\'t be able to revert this!',
+      title: 'کیا آپ مطمئن ہیں؟ ',
+      // text: 'You won\'t be able to revert this!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#34c38f',
       cancelButtonColor: '#f46a6a',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'ہاں، اسے ڈیلیٹ کریں'
     }).then(result => {
       if (result.value) {
         this.userService.deleteUser({_id:item._id}).subscribe((res: any) => {
           console.log(res);
           this._fetchData();
         } );
-        Swal.fire('Deleted!', 'User has been deleted.', 'success');
+        Swal.fire('ڈیلیٹ!', 'ڈیلیٹ', 'success');
       }
     });
   }

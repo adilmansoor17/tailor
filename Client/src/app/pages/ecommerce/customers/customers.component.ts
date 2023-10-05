@@ -234,7 +234,8 @@ export class CustomersComponent implements OnInit {
     const packet_samne = this.validationform.get('packet_samne').value;
     const packet_side = this.validationform.get('packet_side').value;
     const packet_shalwar = this.validationform.get('packet_shalwar').value;
-
+    const kaff = this.validationform.get('kaff').value;
+    const modda = this.validationform.get('modda').value;
     const description = this.validationform.get('description').value;
 
     if (this.validationform.valid) {
@@ -256,7 +257,9 @@ export class CustomersComponent implements OnInit {
         packet_samne: packet_samne,
         packet_side: packet_side,
         packet_shalwar: packet_shalwar,
-        description: description
+        description: description,
+        kaff: kaff,
+        modda: modda
       }
 
       this.userService.addUser(newObect).subscribe((res: any) => {
@@ -284,7 +287,8 @@ export class CustomersComponent implements OnInit {
       packet_samne: '',
       packet_side: '',
       packet_shalwar: '',
-
+      kaff: '',
+      modda: '',
       description: ''
       });
 

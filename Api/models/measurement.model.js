@@ -25,6 +25,8 @@ const measurement = new Schema({
     packet_shalwar: String,
     
     description: String,
+    modda:String,
+    kaff:String,
 
     status: {
         type: String,

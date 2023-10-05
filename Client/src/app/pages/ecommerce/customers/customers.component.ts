@@ -44,7 +44,8 @@ export class CustomersComponent implements OnInit {
       packet_samne: ['', [Validators.required]],
       packet_side: ['', [Validators.required]],
       packet_shalwar: ['', [Validators.required]],
-
+      kaff: ['', [Validators.required]],
+      modda: ['', [Validators.required]],
       description: ['', [Validators.required]]
 
     });
@@ -96,8 +97,9 @@ export class CustomersComponent implements OnInit {
         packet_samne: measure.data[0]?.packet_samne||'',
         packet_side: measure.data[0]?.packet_side||'',
         packet_shalwar: measure.data[0]?.packet_shalwar||'',
-        description: measure.data[0]?.description||''
-
+        description: measure.data[0]?.description||'',
+        kaff: measure.data[0]?.kaff||'',
+        modda: measure.data[0]?.modda||''
       });
      this.modalService.open(content, { centered: true });
 
@@ -127,7 +129,8 @@ export class CustomersComponent implements OnInit {
     const packet_samne = this.validationform.get('packet_samne').value;
     const packet_side = this.validationform.get('packet_side').value;
     const packet_shalwar = this.validationform.get('packet_shalwar').value;
-
+    const kaff = this.validationform.get('kaff').value;
+    const modda = this.validationform.get('modda').value;
     const description = this.validationform.get('description').value;
 
     if (this.validationform.valid) {
@@ -150,7 +153,9 @@ export class CustomersComponent implements OnInit {
         packet_samne: packet_samne||item.packet_samne,
         packet_side: packet_side||item.packet_side,
         packet_shalwar: packet_shalwar||item.packet_shalwar,
-        description: description||item.description
+        description: description||item.description,
+        kaff: kaff||item.kaff,
+        modda: modda||item.modda
       }
 
       this.userService.addUser(newObect).subscribe((res: any) => {
@@ -178,7 +183,8 @@ export class CustomersComponent implements OnInit {
       packet_samne: '',
       packet_side: '',
       packet_shalwar: '',
-
+      kaff: '',
+      modda: '',
       description: ''
       });
 

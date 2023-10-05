@@ -49,7 +49,8 @@ const controller = (req) => {
                 packet_side: requestedata.packet_side,
                 packet_shalwar: requestedata.packet_shalwar,
                 description: requestedata.description,
-
+                kaff: requestedata.kaff,
+                modda: requestedata.modda,
                 status: requestedata.status
               }
             }
@@ -92,7 +93,8 @@ const controller = (req) => {
                 packet_side: requestedata.packet_side,
                 packet_shalwar: requestedata.packet_shalwar,
                 description: requestedata.description,
-
+                kaff: requestedata.kaff,
+                modda: requestedata.modda,
                 status: requestedata.status
               }
             }

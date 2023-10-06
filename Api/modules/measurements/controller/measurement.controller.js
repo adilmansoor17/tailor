@@ -35,7 +35,9 @@ const controller = (req) => {
               description: requestedata.description,
               kaff: requestedata.kaff,
               modda: requestedata.modda,
-              status: requestedata.status
+              status: requestedata.status,
+              gala2: requestedata.gala2,
+              ghera2: requestedata.ghera2,
             }
           }
           ,{new:true, upsert:true}); 

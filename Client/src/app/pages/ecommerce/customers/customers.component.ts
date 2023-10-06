@@ -46,7 +46,9 @@ export class CustomersComponent implements OnInit {
       packet_shalwar: ['', [Validators.required]],
       kaff: ['', [Validators.required]],
       modda: ['', [Validators.required]],
-      description: ['', [Validators.required]]
+      description: ['', [Validators.required]],
+      gala2: ['', [Validators.required]],
+      ghera2: ['', [Validators.required]],
 
     });
 
@@ -99,7 +101,9 @@ export class CustomersComponent implements OnInit {
         packet_shalwar: measure.data[0]?.packet_shalwar||'',
         description: measure.data[0]?.description||'',
         kaff: measure.data[0]?.kaff||'',
-        modda: measure.data[0]?.modda||''
+        modda: measure.data[0]?.modda||'',
+        gala2: measure.data[0]?.gala2||'',
+        ghera2: measure.data[0]?.ghera2||'',
       });
      this.modalService.open(content, { centered: true });
 
@@ -132,6 +136,8 @@ export class CustomersComponent implements OnInit {
     const kaff = this.validationform.get('kaff').value;
     const modda = this.validationform.get('modda').value;
     const description = this.validationform.get('description').value;
+    const gala2 = this.validationform.get('gala2').value;
+    const ghera2 = this.validationform.get('ghera2').value;
 
     if (this.validationform.valid) {
 
@@ -155,7 +161,9 @@ export class CustomersComponent implements OnInit {
         packet_shalwar: packet_shalwar||item.packet_shalwar,
         description: description||item.description,
         kaff: kaff||item.kaff,
-        modda: modda||item.modda
+        modda: modda||item.modda,
+        gala2: gala2||item.gala2,
+        ghera2: ghera2||item.ghera2,
       }
 
       this.userService.addUser(newObect).subscribe((res: any) => {
@@ -185,7 +193,9 @@ export class CustomersComponent implements OnInit {
       packet_shalwar: '',
       kaff: '',
       modda: '',
-      description: ''
+      description: '',
+      gala2: '',
+      ghera2: '',
       });
 
       this.modalService.dismissAll();
@@ -237,6 +247,8 @@ export class CustomersComponent implements OnInit {
     const kaff = this.validationform.get('kaff').value;
     const modda = this.validationform.get('modda').value;
     const description = this.validationform.get('description').value;
+    const gala2 = this.validationform.get('gala2').value;
+    const ghera2 = this.validationform.get('ghera2').value;
 
     if (this.validationform.valid) {
 
@@ -259,7 +271,9 @@ export class CustomersComponent implements OnInit {
         packet_shalwar: packet_shalwar,
         description: description,
         kaff: kaff,
-        modda: modda
+        modda: modda,
+        gala2: gala2,
+        ghera2: ghera2,
       }
 
       this.userService.addUser(newObect).subscribe((res: any) => {
@@ -289,7 +303,9 @@ export class CustomersComponent implements OnInit {
       packet_shalwar: '',
       kaff: '',
       modda: '',
-      description: ''
+      description: '',
+      gala2: '',
+      ghera2: '',
       });
 
       this.modalService.dismissAll();

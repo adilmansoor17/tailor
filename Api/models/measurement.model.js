@@ -20,6 +20,9 @@ const measurement = new Schema({
     shalwar: String,
     pancha: String,
 
+    gala2: String,
+    ghera2: String,
+    
     packet_samne: String,
     packet_side: String,
     packet_shalwar: String,

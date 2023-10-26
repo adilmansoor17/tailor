@@ -39,12 +39,10 @@ async function copyData(collectionName) {
     await destinationCollection.insertMany(documents);
 
     console.log(`Copied ${documents.length} documents`);
-  } catch (error) {
-    console.error('Error:', error);
-  } finally {
-    // Close the database connections
     sourceClient.close();
     destinationClient.close();
+  } catch (error) {
+    console.error('Error:', error);
   }
 }
 
@@ -92,7 +90,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 const routes = require('./router');
 app.use('/api', routes);
 
-app.get('/backup', async (req, res) => {
+app.use('/backup', async (req, res) => {
     const collectionName1 = 'person';
     const collectionName2 = 'measurement';
     await copyData(collectionName1);

@@ -56,6 +56,8 @@ export class CustomersComponent implements OnInit {
   }
 
   backupData(){
+    Swal.fire('Backup', 'Please Wait', 'info');
+
     this.userService.backupData({}).subscribe((res: any) => {
       console.log(res);
       if(res.status==200){

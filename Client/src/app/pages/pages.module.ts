@@ -9,7 +9,6 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { NgbNavModule, NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FullCalendarModule } from '@fullcalendar/angular';
 import { DndModule } from 'ngx-drag-drop';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -17,17 +16,10 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { ChatComponent } from './chat/chat.component';
 import { EcommerceModule } from './ecommerce/ecommerce.module';
-import { KanbanComponent } from './kanban/kanban.component';
-import { EmailModule } from './email/email.module';
 import { UIModule } from './ui/ui.module';
 import { IconsModule } from './icons/icons.module';
-import { ChartModule } from './chart/chart.module';
-import { FormModule } from './form/form.module';
 import { TablesModule } from './tables/tables.module';
-import { MapsModule } from './maps/maps.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -35,7 +27,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 @NgModule({
-  declarations: [DashboardComponent, CalendarComponent, ChatComponent, KanbanComponent],
+  declarations: [DashboardComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -49,13 +41,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgbTooltipModule,
     PerfectScrollbarModule,
     DndModule,
-    FullCalendarModule,
-    EcommerceModule, EmailModule,
+    EcommerceModule,
     IconsModule,
-    ChartModule,
-    FormModule,
     TablesModule,
-    MapsModule,
     LeafletModule,
     WidgetModule
   ],

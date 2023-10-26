@@ -1,6 +1,7 @@
 module.exports = {
     DB: {
         DB_URL: process.env.DB_URL,
+        DB_URL_BACKUP: process.env.DB_URL_BACKUP,
     },
     NODE_ENV: process.env.NODE_ENV,
     BASE_URL: process.env.BASE_URL,

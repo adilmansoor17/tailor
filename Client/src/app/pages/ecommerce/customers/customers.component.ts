@@ -55,6 +55,17 @@ export class CustomersComponent implements OnInit {
     this._fetchData();
   }
 
+  backupData(){
+    this.userService.backupData({}).subscribe((res: any) => {
+      console.log(res);
+      if(res.status==200){
+        Swal.fire('Backup', 'Backup Done', 'success');
+      }else{
+        Swal.fire('Backup', 'Backup Failed', 'error');
+      }
+    } );
+  }
+
   private _fetchData() {
     this.userService.getUser({}).subscribe((res: any) => {
       console.log(res);

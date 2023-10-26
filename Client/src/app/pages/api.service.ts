@@ -45,4 +45,10 @@ export class ApiService {
         return this._httpclient
             .post(`http://localhost:8086/api/measurement/deleteMeasurement`, { details:filter }).pipe();
     }
+
+    backupData(filter) {
+        return this._httpclient
+            .post(`http://localhost:8086/backup`, { details:filter }).pipe();
+    }
+
 }

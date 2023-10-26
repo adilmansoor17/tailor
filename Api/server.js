@@ -13,6 +13,43 @@ const CONFIG = require('./config/config');
 const db = require('./db');
 var cors = require('cors');
 const moment = require('moment');
+const axios = require('axios'); // Import Axios for making requests
+const MongoClient = require('mongodb').MongoClient;
+
+
+const sourceURL = CONFIG.DB.DB_URL;
+const destinationURL = CONFIG.DB.DB_URL_BACKUP;
+
+async function copyData(collectionName) {
+  try {
+    const sourceClient = new MongoClient(sourceURL, { useUnifiedTopology: true });
+    await sourceClient.connect();
+    const sourceDB = sourceClient.db();
+
+    const destinationClient = new MongoClient(destinationURL, { useUnifiedTopology: true });
+    await destinationClient.connect();
+    const destinationDB = destinationClient.db();
+
+    const sourceCollection = sourceDB.collection(collectionName);
+    const destinationCollection = destinationDB.collection(collectionName);
+
+    const documents = await sourceCollection.find({}).toArray();
+
+    await destinationCollection.deleteMany({});
+    await destinationCollection.insertMany(documents);
+
+    console.log(`Copied ${documents.length} documents`);
+  } catch (error) {
+    console.error('Error:', error);
+  } finally {
+    // Close the database connections
+    sourceClient.close();
+    destinationClient.close();
+  }
+}
+
+
+
 
 
 
@@ -54,6 +91,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 const routes = require('./router');
 app.use('/api', routes);
+
+app.get('/backup', async (req, res) => {
+    const collectionName1 = 'person';
+    const collectionName2 = 'measurement';
+    await copyData(collectionName1);
+    await copyData(collectionName2);
+    res.send({status:200, message: 'Backup completed'});
+  });
 
 
 

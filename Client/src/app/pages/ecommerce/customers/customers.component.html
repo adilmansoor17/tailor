@@ -17,6 +17,9 @@
             <a href="javascript:void(0);" class="btn btn-success mb-2" (click)="openModal(content)">
               <i class="mdi mdi-plus mr-2"></i> گاہک شامل کریں
             </a>
+            <a style="margin-left: 15px;" href="javascript:void(0);" class="btn btn-success mb-2" (click)="backupData()">
+              BACKUP
+            </a>
           </div>
           <div class="table-responsive mt-3">
             <table class="table table-centered datatable dt-responsive nowrap"
@@ -128,8 +131,8 @@
           <input type="text" class="form-control" placeholder="کف" formControlName="kaff">
         </div>
         <div class="form-group">
-          <label>موڑا </label>
-          <input type="text" class="form-control" placeholder="موڑا" formControlName="modda">
+          <label>موڈا </label>
+          <input type="text" class="form-control" placeholder="موڈا" formControlName="modda">
         </div>
         <div class="form-group">
           <label>پانچہ </label>
@@ -178,14 +181,14 @@
           <div class="row">
             <div class="col-4">
               <label class="radio-inline d-flex align-items-center">
-                <input type="radio" formControlName="gala" value="گول">
-                <span class="ml-2">گول</span>
+                <input type="radio" formControlName="gala" value="کالر">
+                <span class="ml-2">کالر</span>
               </label>
             </div>
             <div class="col-4">
               <label class="radio-inline d-flex align-items-center">
-                <input type="radio" formControlName="gala" value="چورس">
-                <span class="ml-2">چورس</span>
+                <input type="radio" formControlName="gala" value="بین">
+                <span class="ml-2">بین</span>
               </label>
             </div>
             <div class="col-4">

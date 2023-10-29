@@ -13,7 +13,7 @@ const mongooseOptions = {
 
 promiseRetry(function (retry, number) {
   console.log("DB connection attempt number --> ", number);
-  return mongoose.connect(CONFIG.DB.DB_URL_BACKUP, mongooseOptions).catch(retry);
+  return mongoose.connect(CONFIG.DB.DB_URL, mongooseOptions).catch(retry);
 }).then(
   function (value) {},
   function (err) {

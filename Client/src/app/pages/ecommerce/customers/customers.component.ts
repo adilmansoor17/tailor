@@ -56,12 +56,12 @@ export class CustomersComponent implements OnInit {
   }
 
   backupData(){
-    Swal.fire('Backup', 'Please Wait', 'info');
+    Swal.fire('Please Wait! Backup is in progress...', 'info');
 
     this.userService.backupData({}).subscribe((res: any) => {
       console.log(res);
       if(res.status==200){
-        Swal.fire('Backup', 'Backup Done', 'success');
+        Swal.fire('Backup', 'Backup Completed', 'success');
       }else{
         Swal.fire('Backup', 'Backup Failed', 'error');
       }
